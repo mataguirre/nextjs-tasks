@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* globals */
+
+:root {
+  --sidenav-desktop-w: 270px;
+  --sidenav-mobile-w: 140px;
+  --navbar-desktop-h: 40px;
+  /* transitions */
+  --transition-t1: 400ms;
+  /* colors */
+  --dark-blue: #231b31;
+}
+
+html {
+  font-size: 65.2%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* layout */
+
+.root-layout-container {
+  width: 100vw;
+}
+
+.layout-sidenav {
+  position: fixed;
+  width: var(--sidenav-desktop-w);
+  background-color: var(--dark-blue);
+  height: calc(100vh - var(--navbar-desktop-h));
+  top: var(--navbar-desktop-h);
+  left: 0;
+  transition: all var(--transition-t1) ease;
+}
+
+.layout-sidenav-hide {
+  position: fixed;
+  width: var(--sidenav-desktop-w);
+  background-color: var(--dark-blue);
+  height: calc(100vh - var(--navbar-desktop-h));
+  top: var(--navbar-desktop-h);
+  left: calc(-1 * var(--sidenav-desktop-w));
+  transition: all var(--transition-t1) ease;
+}
+
+.layout-navbar {
+  position: fixed;
+  width: 100vw;
+  background-color: red;
+  height: var(--navbar-desktop-h);
+  top: 0;
+  left: 0;
+  transition: all var(--transition-t1) ease;
+  z-index: 10000;
+}
+
+.layout-navbar-ul {
+  display: flex;
+  align-items: center;
+  max-width: 120rem;
+  height: 100%;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+
+.layout-sidenav-btn {
+  background-color: var(--dark-blue);
+  color: white;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: -15px;
+  top: 30px;
+}
+
+.layout-content {
+  margin-left: var(--sidenav-desktop-w);
+  transition: all var(--transition-t1) ease;
+  width: calc(100% - var(--sidenav-desktop-w));
+  height: calc(100vh - var(--navbar-desktop-h));
+  margin-top: var(--navbar-desktop-h);
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.layout-content-full {
+  margin: 0;
+  width: 100%;
+  height: calc(100vh - var(--navbar-desktop-h));
+  margin-top: var(--navbar-desktop-h);
+}
+
+.layout-sidenav-links {
+  color: white;
+}
+
+.account-btn {
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  background-color: blue;
+  color: white;
+  width: 100px;
+  text-align: center;
+}
+
+.account-layout {
+  display: grid;
+  place-items: center;
+  background: rgb(110, 9, 121);
+  background: linear-gradient(
+    90deg,
+    rgba(110, 9, 121, 1) 23%,
+    rgba(0, 129, 255, 1) 100%
+  );
+  height: 100vh;
+  width: 100vw;
+}
+
+.account-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.account-span {
+  color: blue;
+  cursor: pointer;
+}
+
+.register-form-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
