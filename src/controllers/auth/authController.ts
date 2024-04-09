@@ -1,17 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Prisma, PrismaClient, User } from '@prisma/client';
+import prisma from '@/app/libs/db';
 import bcrypt from 'bcrypt';
 import { createAccessToken } from '../../libs/jwt';
-
-const prisma = new PrismaClient();
+import { Prisma } from '@prisma/client';
 
 const authController = {
   loginAsync: async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-      // Extract necessary data
       const { email, password } = req.body;
 
-      // Search for the user in the DB
       const user = await prisma.user.findFirst({
         where: {
           email,
