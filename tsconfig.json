@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/lib/placeholder-data.js",
-    "scripts/seed.js"
-, "app/libs/db.js"  ],
+    "scripts/seed.ts"
+, "app/libs/db.js", "src/libs/jwt.ts"  ],
   "exclude": ["node_modules"]
 }
